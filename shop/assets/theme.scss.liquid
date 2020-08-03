@@ -709,8 +709,9 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 // Layout
 $max-width: 1020px;
 $max-width-small: 640px;
+$max-width-medium: 860px;
 $max-width-large: 1200px;
-$gutter: 30px;
+$gutter: 40px;
 $gutter-double: $gutter * 2;
 $gutter-triple: $gutter * 3;
 $gutter-half: $gutter / 2;
@@ -1085,7 +1086,6 @@ html {
   h4,
   h5,
   h6 {
-    color: $color-accent-text;
 
     a { color: currentColor; }
   }
@@ -1486,8 +1486,10 @@ body {
   margin: $gutter-vertical-large auto;
 
   .section-title {
-    max-width: 500px;
+    max-width: 600px;
+    color: #F4F2E5;
     margin: $gutter-vertical-large auto;
+    font-weight: bold;
   }
 
   &.module-inline-items {
@@ -2035,7 +2037,7 @@ textarea {
 
   &:hover {
     background-color: rgba($color-form-select, 0.1);
-    border-color: rgba($color-form-select, 0.1);
+    border-color: rgba($color-form-select, 0.5);
 
     .accent-style & {
       background-color: rgba($color-accent-text, 0.1);
@@ -2047,9 +2049,9 @@ textarea {
   :checked + &:hover {
     font-style: font-style($font-body, $font-weight: bolder);
     font-weight: font-weight($font-body, $font-weight: bolder);
-    color: $color-body-background;
-    background-color: $color-form-select;
-    border-color: $color-form-select;
+    color: white;
+    background-color: black;
+    padding: 15px;
 
     .accent-style & {
       color: $color-accent;
@@ -8198,7 +8200,7 @@ input[type="text"].search-input {
   }
 
   .feature-title {
-    @extend %heading-h4;
+    @extend %heading-h5;
     margin-top: 0;
   }
 }
@@ -8508,7 +8510,7 @@ $local-avatar-small: 40px;
   .section-title {
     text-decoration: none;
 
-    a { color: currentColor; }
+    a { color: white; }
   }
 }
 
@@ -9398,7 +9400,7 @@ $slideshow-gutter: 70px + $gutter;
 
     .text-aligned-right & { padding-left: 30%; }
 
-    .text-aligned-left & { padding-right: 30%; }
+    .text-aligned-center & { padding: 5%; }
   }
 }
 
@@ -9425,24 +9427,24 @@ $slideshow-gutter: 70px + $gutter;
 
 .slide-title,
 .slide-subtitle {
-  font-size: rem(56px);
+  font-size: rem(42px);
 
   @include breakpoint(m) {
-    font-size: rem(46px);
+    font-size: rem(38px);
   }
 
   @media (max-width: 860px) {
-    font-size: rem(32px);
+    font-size: rem(28px);
   }
 
   @include breakpoint(s) {
-    font-size: rem(32px);
+    font-size: rem(26px);
   }
 }
 
 .slide-title {
-  font-style: font-style($font-body, $font-weight: bolder);
-  font-weight: font-weight($font-body, $font-weight: bolder);
+  font-style: font-style($font-body, $font-weight: bold);
+  font-weight: font-weight($font-body, $font-weight: bold);
 }
 
 .slide-subtitle {
@@ -9451,14 +9453,15 @@ $slideshow-gutter: 70px + $gutter;
 }
 
 .slide-caption {
-  font-size: rem(30px);
+  font-size: rem(18px);
 
   p {
     margin-top: 0;
     margin-bottom: 0;
+
   }
 
-  @include breakpoint(m) { font-size: rem(26px); }
+  @include breakpoint(m) { font-size: rem(22px); }
 
   @include breakpoint(s) { font-size: 18px; }
 }
@@ -9468,4 +9471,3 @@ $slideshow-gutter: 70px + $gutter;
   margin-top: 0;
   border: 0;
 }
-

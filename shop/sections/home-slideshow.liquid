@@ -32,7 +32,7 @@
   </script>
 
   <div
-    class="{{ slideshow_classes | strip_newlines}} slideshow-section"
+    class="{{ slideshow_classes | strip_newlines}} slideshow-section module-container {{ section.settings.style }}"
     {% if trigger_full_bleed %}
       {% comment %} Header relies on this attribute {% endcomment %}
       data-full-bleed-slideshow
@@ -176,6 +176,26 @@
       "type": "checkbox",
       "id": "enable",
       "label": "Enable"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "default-style",
+          "label": "Default"
+        },
+        {
+          "value": "accent-style",
+          "label": "Accent"
+        },
+        {
+          "value": "contrast-style",
+          "label": "Contrast"
+        }
+      ],
+      "default": "default-style"
     },
     {
       "type": "checkbox",

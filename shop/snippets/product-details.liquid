@@ -22,6 +22,8 @@
     {{ product_title }}
   {% endif %}
 
+  <div class="featured-product__description rte">{{ product.description }}</div>
+
   {% if section.settings.product_show_vendor and vendor != blank%}
     <p class="meta vendor">
       {{ vendor }}
