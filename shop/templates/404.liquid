@@ -1,9 +1,16 @@
-<div class="page-width">
-  <div class="empty-page-content text-center">
-    <h1>{{ 'general.404.title' | t }}</h1>
-    <p>{{ 'general.404.subtext' | t }}</p>
-    <p>
-      <a href="{{ routes.root_url }}" class="btn btn--has-icon-after">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
-    </p>
-  </div>
+<script
+  type="application/json"
+  data-section-type="static-404"
+  data-section-id="{{ section.id }}"
+></script>
+
+<h1 class="page-title">
+  {{ 'general.404.title' | t }}
+</h1>
+
+<div class="rte">
+  {% capture link %}
+    <a href="/collections/all">{{ 'general.404.link' | t }}</a>
+  {% endcapture %}
+  <p>{{ 'general.404.subtext_html' | t: link: link }}</p>
 </div>
