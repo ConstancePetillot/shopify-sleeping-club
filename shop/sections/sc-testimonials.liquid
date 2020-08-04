@@ -1,0 +1,113 @@
+<section id="section-{{ section.id }}" class="testimonial section module-container {{ section.settings.style }}" data-section-id="{{ section.id }}" data-section-type="alternate__section">
+
+  <div class="testimonial__wraper">
+
+      {% if section.settings.testimonial-title != blank %}
+        <h1 class="testimonial__title section-title">{{ section.settings.testimonial-title | escape }}</h1>
+      {% endif %}
+
+    <div class="testimonial__left-encart">
+      {% if section.settings.testimonial-image1 %}
+        <div class="testimonial__image--left">
+          <img src="{{ section.settings.testimonial-image1 | img_url : '450x' }}">
+        </div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'home-testimonial-image1 placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    <div class="testimonial__right-encart">
+      {% if section.settings.testimonial-quote != blank %}
+        <div class="testimonial__quote">
+          {{ section.settings.testimonial-quote }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.testimonial-image2 %}
+        <div class="testimonial__image--2">
+          <img src="{{ section.settings.testimonial-image2 | img_url : '750x' }}">
+        </div>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'home-testimonial-image2 placeholder-svg' }}
+      {% endif %}
+    </div>
+
+  </div>
+
+
+  {% if section.settings.testimonial-arrow %}
+    <div class="testimonial__image--arrow">
+      <img src="{{ section.settings.testimonial-arrow | img_url : '200x' }}">
+    </div>
+  {% else %}
+    {{ 'image' | placeholder_svg_tag: 'home-testimonial-arrow placeholder-svg' }}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials SC",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "default-style",
+          "label": "Default"
+        },
+        {
+          "value": "accent-style",
+          "label": "Accent"
+        },
+        {
+          "value": "contrast-style",
+          "label": "Contrast"
+        }
+      ],
+      "default": "default-style"
+    },
+    {
+      "type": "text",
+      "id": "testimonial-title",
+      "label": "Heading",
+      "default": "Testimonials"
+    },
+    {
+      "type": "richtext",
+      "id": "testimonial-quote",
+      "label": "Quote",
+      "default": "<p>Write a testimonial to build up trust with customers.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "testimonial-image1",
+      "label": "Image left"
+    },
+    {
+      "type": "image_picker",
+      "id": "testimonial-image2",
+      "label": "Image left"
+    },
+    {
+      "type": "image_picker",
+      "id": "testimonial-arrow",
+      "label": "Down arrow"
+    },
+    {
+      "type": "richtext",
+      "id": "testimonial-animation",
+      "label": "animated circle",
+      "default": "<p>Whrite here your label - Whrite here your label - Whrite here your label</p>"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Testimonials sc"
+    }
+  ]
+}
+
+{% endschema %}

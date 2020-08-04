@@ -4,7 +4,6 @@
 {% assign pxs_newsletter_form_id = 'pxs-newsletter-' | append: section.id %}
 
 <script
-  class="module-container {{ section.settings.style }}"
   type="application/json"
   data-section-type="pxs-newsletter"
   data-section-id="{{ section.id }}"
@@ -12,7 +11,7 @@
 </script>
 
 <section
-  class="
+  class=" module-container {{ section.settings.style }}
     pxs-newsletter
     pxs-newsletter-desktop-alignment-{{ section.settings.desktop_alignment }}
     pxs-newsletter-mobile-alignment-{{ section.settings.mobile_alignment }}
