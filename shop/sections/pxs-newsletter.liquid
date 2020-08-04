@@ -4,6 +4,7 @@
 {% assign pxs_newsletter_form_id = 'pxs-newsletter-' | append: section.id %}
 
 <script
+  class="module-container {{ section.settings.style }}"
   type="application/json"
   data-section-type="pxs-newsletter"
   data-section-id="{{ section.id }}"
@@ -75,6 +76,26 @@
       "id": "title",
       "label": "Heading",
       "default": "Newsletter"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "default-style",
+          "label": "Default"
+        },
+        {
+          "value": "accent-style",
+          "label": "Accent"
+        },
+        {
+          "value": "contrast-style",
+          "label": "Contrast"
+        }
+      ],
+      "default": "default-style"
     },
     {
       "type": "richtext",

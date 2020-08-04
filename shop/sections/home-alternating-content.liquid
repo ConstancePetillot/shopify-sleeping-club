@@ -63,11 +63,11 @@
 
         <div class="home-left-right-text">
           {% if block.settings.title != blank %}
-            <h1 class="feature-title">{{ block.settings.title }}</h1>
+            <h1 class="left-right__feature-title">{{ block.settings.title }}</h1>
           {% endif %}
 
           {% if block.settings.caption != blank or has_button %}
-            <div class="rte">
+            <div class="rte left-right__feature-text">
               {% if block.settings.caption != blank %}
                 <p>{{ block.settings.caption | escape | newline_to_br }}</p>
               {% endif %}

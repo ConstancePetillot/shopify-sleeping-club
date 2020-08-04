@@ -707,7 +707,7 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 // ------------------------- */
 
 // Layout
-$max-width: 1020px;
+$max-width: 1300px;
 $max-width-small: 640px;
 $max-width-medium: 860px;
 $max-width-large: 1200px;
@@ -4610,11 +4610,6 @@ $local-thumbnail-horizontal-gap: 12px;
     transition: box-shadow 200ms $ease-out-quad;
   }
 
-  &[data-product-gallery-selected="true"] {
-    &::after {
-      box-shadow: 0 0 0 2px $color-body-background, 0 0 0 3px $color-border;
-    }
-  }
 
   img {
     display: block;
@@ -4696,28 +4691,19 @@ $local-thumbnail-horizontal-gap: 12px;
   }
 
   .button:not(:disabled) {
-    color: $color-accent;
-    background: $color-body-background;
-    border: 1px solid $color-accent;
+    color: white;
+    background: black;
 
     &:hover {
-      color: $color-accent-hover;
-      border-color: $color-accent-hover;
-    }
-
-    .contrast-style & {
-      background: $color-contrast-background;
+      color: black;
+      background-color: white;
+      border: 1px solid black
     }
 
     .accent-style & {
-      color: $color-body-background;
-      background: $color-accent;
-      border: 1px solid $color-body-background;
+      color: white;
+      background: black;
 
-      &:hover {
-        color: transparentize($color-body-background, 0.2);
-        border-color: transparentize($color-body-background, 0.2);
-      }
     }
   }
 }
@@ -4742,19 +4728,19 @@ $local-thumbnail-horizontal-gap: 12px;
 }
 
 .shopify-payment-button__button--unbranded {
-  background: $color-accent;
+  background: black;
 
   &:hover:not(:disabled) {
-    background: $color-accent-hover;
+    background: black;
 
     .accent-style & {
-      background: transparentize($color-body-background, 0.2);
+      background: transparentize(black, 0.4);
     }
   }
 
   .accent-style & {
-    color: $color-accent;
-    background: $color-body-background;
+    color: white;
+    background: black;
 
   }
 }
@@ -7836,9 +7822,8 @@ input[type="text"].search-input {
 
 // Sections
 .home-left-right-feature {
-  margin-top: $gutter-vertical-large * 2;
-  margin-bottom: $gutter-vertical-large * 2;
   font-size: 0;
+  text-align: center;
 
   @include breakpoint(s) {
     margin-top: $gutter-vertical-large;
@@ -7858,6 +7843,7 @@ input[type="text"].search-input {
     padding-top: 0;
     margin-top: 0;
     border-top: 0;
+    text-align: center;
   }
 
   .section-title + { margin-top: $gutter-vertical-large; }
@@ -7867,11 +7853,14 @@ input[type="text"].search-input {
 
   @include breakpoint(s) { margin-top: $gutter-vertical-small; }
 
-  .media-aligned-left & { padding-left: $gutter; }
+  .media-aligned-left & {
+    padding-left: $gutter;
+    padding-bottom: $gutter;
+  }
 
   .media-aligned-right & {
     position: relative;
-    left: -50%;
+    left: -40%;
     padding-right: $gutter;
 
     @include breakpoint(s) {
@@ -7889,12 +7878,12 @@ input[type="text"].search-input {
     margin: 0 auto;
   }
 
-  .media-aligned-left & { padding-right: $gutter; }
+  .media-aligned-left & { padding-right: 15px; }
 
   .media-aligned-right & {
     position: relative;
-    left: 50%;
-    padding-left: $gutter;
+    left: 40%;
+
 
     @include breakpoint(s) {
       left: 0;
@@ -7906,7 +7895,7 @@ input[type="text"].search-input {
 .home-left-right-text,
 .home-left-right-media {
   display: inline-block;
-  width: 50%;
+  width: 40%;
   font-size: 16px;
   vertical-align: middle;
 
