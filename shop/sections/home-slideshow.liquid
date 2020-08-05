@@ -66,20 +66,6 @@
             {% assign has_content = false %}
           {% endif %}
 
-          {% if block.settings.image %}
-            {% assign slide_image = block.settings.image %}
-            {% assign placeholder_image_style = false %}
-          {% else %}
-            {% assign placeholder_image_style = 'lifestyle-' | append: current %}
-            {% assign color_string = settings.body-text-color | hex_to_rgba: 0.35 %}
-            {%- capture slide_image -%}
-              {%-
-                include 'placeholder_svg_uri',
-                placeholder: placeholder_image_style,
-                color_string: color_string
-              -%}
-            {%- endcapture -%}
-          {% endif %}
 
           {%- capture slide_class -%}
             slideshow-slide
@@ -109,13 +95,13 @@
                 lazy: true
               %}
             {% endif %}
-
             {{ block.shopify_attributes }}
           >
 
-            {% if block.settings.link != blank and block.settings.image %}
-              <a href="{{ block.settings.link }}">
-            {% endif %}
+          {% if block.settings.link != blank and block.settings.image %}
+            <a href="{{ block.settings.link }}">
+          {% endif %}
+
 
             {% if block.settings.image %}
               {%
@@ -128,8 +114,13 @@
                 canvas: true
               %}
             {% else %}
-              {{ placeholder_image_style | placeholder_svg_tag: 'placeholder-svg slide-image' }}
+            <div class="hero-video-container">
+              <video class="hero__video" loop="" muted="" autoplay="autoplay" preload="" id="vid">
+                <source src="https://cdn.shopify.com/s/files/1/0450/8588/4571/files/SLEEPINGCLUB_IMERSIVE_V02.mp4?v=1596635702.mp4" type="video/mp4">
+              </video>
+            </div>
             {% endif %}
+
 
             {% if block.settings.link != blank %}
               </a>

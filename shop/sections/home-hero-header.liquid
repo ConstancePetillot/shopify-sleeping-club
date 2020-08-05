@@ -1,0 +1,176 @@
+<section id="section-{{ section.id }}" class="hero-header section module-container {{ section.settings.style }}" data-section-id="{{ section.id }}" data-section-type="alternate__section">
+  <div class="hero-header__wrapper">
+
+    {% assign has_content = true %}
+    {% if
+      section.settings.title == blank and
+      section.settings.subtitle == blank and
+      section.settings.caption == blank and
+      section.settings.button == blank %}
+      {% assign has_content = false %}
+    {% endif %}
+
+    {% if section.settings.link != blank %}
+      <div class="hero__video-container">
+        <video class="hero__video" loop="" muted="" autoplay="autoplay" preload="" id="vid">
+          <source src="https://cdn.shopify.com/s/files/1/0450/8588/4571/files/SLEEPINGCLUB_IMERSIVE_V02.mp4?v=1596635702.mp4" type="video/mp4">
+        </video>
+      </div>
+    {% endif %}
+
+
+    {% if has_content %}
+      <div class="hero-text">
+        {% if section.settings.title != blank %}
+          <h1 class="hero-title slideshow__hero-title">{{ section.settings.title | escape }}</h1>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <h2 class="hero-subtitle">{{ section.settings.subtitle | escape }}</h2>
+        {% endif %}
+
+        {% if section.settings.caption != blank %}
+          <div class="hero-caption">
+            {{ section.settings.caption }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button != blank and section.settings.link != blank %}
+          <a class="hero-button button-black" href="{{ section.settings.link }}">
+            {{ section.settings.button | escape }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "hero-header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_subtitle",
+        "label": "Text",
+        "default": "Ecrivez votre sous-titre"
+      },
+      {
+        "type": "select",
+        "id": "banner_height",
+        "label": "Choisir la hauteur de la bannière",
+				"options": [
+          { "value" : "height--small", "label": "Petit"},
+          { "value" : "height--normal", "label": "Normal"},
+          { "value" : "height--full", "label": "Grand"}
+        ]
+      },
+      {
+        "type": "select",
+        "id": "style",
+        "label": "Style",
+        "options": [
+          {
+            "value": "default-style",
+            "label": "Default"
+          },
+          {
+            "value": "accent-style",
+            "label": "Accent"
+          },
+          {
+            "value": "contrast-style",
+            "label": "Contrast"
+          }
+        ],
+        "default": "default-style"
+      },
+      {
+      "type": "select",
+      "id": "hero_title_hn",
+      "label": "heading balisage",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Align text",
+      "options":
+        [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "richtext",
+        "id": "caption",
+        "label": "Text",
+        "default": "<p>Introduce customers to your shop with lifestyle imagery and product photography.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Header Video",
+        "category": "Hero Header"
+      }
+    ]
+  }
+{% endschema %}
