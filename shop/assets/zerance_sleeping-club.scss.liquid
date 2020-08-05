@@ -7,22 +7,52 @@ HEADER
 
 .logo {
   position: absolute;
-  top: 70%;
+  top: 40%;
   left: 10%;
 }
 
+@media(min-width: 768px) {
+  .logo {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+  }
+}
 
 /*==========================================
 HERO HEADER
 ============================================*/
-
+.full-slideshow-wrapper.content-width {
+  padding: 20px;
+}
 
 .slideshow__slide-title {
-  width: 70%;
+  width: 100%;
   margin: auto;
 }
 
+.button-black {
+  border-radius: 0;
+  background: black;
+  color: white;
+  padding: 5px 40px;
+  &:hover {
+    color: black;
+    background: white;
+    border: 1px solid black;
+  }
+}
 
+@media(min-width: 768px) {
+  .slideshow__slide-title {
+    width: 70%;
+    margin: auto;
+  }
+
+  .full-slideshow-wrapper.content-width {
+    padding: 20px 0 20px 0;
+  }
+}
 
 
 /*==========================================
@@ -34,6 +64,27 @@ REASSURANCE
   font-weight: bold;
 }
 
+.home-inline-image {
+  height: auto;
+  width: 100%;
+}
+
+.home-inline-feature .feature-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+@media(min-width: 768px) {
+  .home-inline-image {
+    height: auto;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .home-inline-feature .feature-title {
+    margin-bottom: 10px;
+  }
+}
 
 /*==========================================
 FEATURED-PRODUCT
@@ -50,6 +101,9 @@ FEATURED-PRODUCT
   line-height: 140%;
 }
 
+.product__price-container {
+  padding-top: 20px;
+}
 
 .product__price--old {
   text-transform: uppercase;
@@ -65,23 +119,37 @@ FEATURED-PRODUCT
 
   span {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 700;
   }
 }
 
 .product-description p{
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 140%;
 }
 
-.product-gallery--navigation {
-  width: 800px;
+
+
+.product-gallery--media-thumbnail {
+  width: 25%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 5px;
+  .slick-prev, .slick-next {
+    top: 43%;
+  }
 }
 
-.featured-product__entretien-wraper {
-  display: flex;
-  padding-left: 40px;
+.product__add-to-cart {
+  margin-top: 10px;
+  width:100%;
+  .button {
+    width: 100%;
+  }
+}
+
+.featured-product__entretien-wrapper {
   align-items: center;
 }
 
@@ -91,6 +159,8 @@ FEATURED-PRODUCT
   height: 50px;
   background-color: #F4F2E5;
   position: relative;
+  margin: auto;
+  margin-bottom: 15px;
 }
 
 .featured-product__entretien-picto-img {
@@ -103,14 +173,80 @@ FEATURED-PRODUCT
 }
 
 .featured-product__entretien-text {
-  width: 60%;
-  padding-left: 15px;
+  text-align: center;
 
   p {
     margin: 0;
   }
 }
 
+@media(min-width: 768px) {
+  .product-gallery--media-thumbnail {
+    max-width: 25%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 15px;
+    .slick-prev, .slick-next {
+      top: 43%;
+    }
+  }
+
+  .product-details  {
+    padding-left: 40px;
+  }
+
+  .product-description p{
+    margin: 0;
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  .product__price-container {
+    padding-top: 0;
+  }
+
+  .product__add-to-cart {
+    margin-top: 10px;
+    width:100%;
+    .button {
+      width:80%;
+    }
+  }
+
+  .featured-product__entretien-wrapper {
+    display: flex;
+    padding-left: 40px;
+    align-items: center;
+  }
+
+  .featured-product__entretien-picto-container {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #F4F2E5;
+    position: relative;
+    margin: 0;
+  }
+
+  .featured-product__entretien-picto-img {
+    position: absolute;
+    width: 60%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .featured-product__entretien-text {
+    width: 60%;
+    padding-left: 15px;
+    text-align: left;
+
+    p {
+      margin: 0;
+    }
+  }
+}
 
 /*==========================================
 LEFT-RIGHT
@@ -153,15 +289,41 @@ TESTIMONIAL
 .testimonial {
   background-color: #A2C5FD !important;
   position: relative;
+
 }
 
 .testimonial__wraper {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  padding-left: 15%;
+  overflow: hidden;
 }
 
 .testimonial__left-encart {
-  margin: 8% 0 8% 8%;
+  margin: 8% 0 8% 0%;
+  position: relative;
+}
+
+.testimonial__animated-circle {
+  position: absolute;
+  width: 70%;
+  top: -10%;
+  right: -55%;
+}
+
+.testimonial__image-circle {
+  animation-iteration-count : infinite;
+  animation-duration: 40000ms;
+  animation-timing-function: linear;
+  animation-name: spin;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .testimonial__right-encart {
@@ -171,6 +333,9 @@ TESTIMONIAL
   align-items: center;
   width: 35vw;
   padding-left: 25px;
+  position: absolute;
+  right: 0;
+  bottom: -2%;
 }
 
 .testimonial__quote {
@@ -189,12 +354,8 @@ TESTIMONIAL
   }
 }
 
-.testimonial__image--2 {
-  object-fit: cover;
-
-  img {
+.testimonial__image--2 img{
     width: 100%;
-  }
 }
 
 
@@ -204,6 +365,17 @@ TESTIMONIAL
   right: 5%;
 }
 
+
+@media(min-width: 768px) {
+  .testimonial__wraper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .testimonial__animated-circle {
+    width: 100%;
+  }
+}
 
 /*==========================================
 FOOTER

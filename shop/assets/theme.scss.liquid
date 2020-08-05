@@ -1499,9 +1499,9 @@ body {
 
     .section-title {
       margin-top: $gutter-vertical-large;
-      margin-bottom: $gutter-vertical-large / 2;
 
       @include breakpoint(s) {
+        padding: 0 0;
         margin-bottom: $gutter-vertical-large - $gutter-half;
       }
     }
@@ -1514,8 +1514,8 @@ body {
     margin-bottom: $gutter-vertical-large / 2;
 
     @include breakpoint(s) {
-      margin-top: $gutter-half;
-      margin-bottom: $gutter-half;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -4509,7 +4509,7 @@ $local-thumbnail-horizontal-gap: 12px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: $gutter-vertical-small;
   margin-bottom: -$local-thumbnail-vertical-gap;
   margin-left: -$local-thumbnail-horizontal-gap;
@@ -7360,8 +7360,8 @@ $pxs-newsletter-space-larger: 68px !default;
   text-align: left;
 
   @include breakpoint(s) {
-    padding-right: $gutter;
-    padding-left: $gutter;
+    padding-right: 0;
+    padding-left: 0;
     text-align: center;
   }
 
@@ -8194,11 +8194,6 @@ input[type="text"].search-input {
   }
 }
 
-.home-inline-image {
-  height: auto;
-  width: 100%;
-  margin-bottom: $gutter;
-}
 
 .home-inline-image-placeholder-container {
   position:relative;
@@ -9078,8 +9073,6 @@ $local-pagination-size: 70px;
   position: relative;
   overflow: hidden;
 
-  &.content-width { padding: $gutter-vertical-small }
-
   &.full-width {
     width: 90%;
 
@@ -9420,7 +9413,7 @@ $slideshow-gutter: 70px + $gutter;
   }
 
   @media (max-width: 860px) {
-    font-size: rem(28px);
+    font-size: rem(24px);
   }
 
   @include breakpoint(s) {
@@ -9439,7 +9432,7 @@ $slideshow-gutter: 70px + $gutter;
 }
 
 .slide-caption {
-  font-size: rem(18px);
+  font-size: rem(14px);
 
   p {
     margin-top: 0;
@@ -9447,9 +9440,9 @@ $slideshow-gutter: 70px + $gutter;
 
   }
 
-  @include breakpoint(m) { font-size: rem(22px); }
+  @include breakpoint(m) { font-size: rem(18px); }
 
-  @include breakpoint(s) { font-size: 18px; }
+  @include breakpoint(s) { font-size: 14px; }
 }
 
 .slide-button {

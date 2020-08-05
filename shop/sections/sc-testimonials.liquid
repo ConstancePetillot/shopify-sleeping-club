@@ -7,6 +7,11 @@
       {% endif %}
 
     <div class="testimonial__left-encart">
+      {% unless section.settings.testimonial-circle == blank %}
+        <div class="testimonial__animated-circle">
+          <img class="testimonial__image-circle" src="{{ section.settings.testimonial-circle | img_url : '350x' }}" alt="{{ section.settings.testimonial-circle.alt | escape }}">
+        </div>
+      {% endunless %}
       {% if section.settings.testimonial-image1 %}
         <div class="testimonial__image--left">
           <img src="{{ section.settings.testimonial-image1 | img_url : '450x' }}">
@@ -25,7 +30,7 @@
 
       {% if section.settings.testimonial-image2 %}
         <div class="testimonial__image--2">
-          <img src="{{ section.settings.testimonial-image2 | img_url : '750x' }}">
+          <img src="{{ section.settings.testimonial-image2 | img_url : '850x' }}">
         </div>
       {% else %}
         {{ 'image' | placeholder_svg_tag: 'home-testimonial-image2 placeholder-svg' }}
@@ -88,7 +93,7 @@
     {
       "type": "image_picker",
       "id": "testimonial-image2",
-      "label": "Image left"
+      "label": "Image right"
     },
     {
       "type": "image_picker",
@@ -96,10 +101,9 @@
       "label": "Down arrow"
     },
     {
-      "type": "richtext",
-      "id": "testimonial-animation",
-      "label": "animated circle",
-      "default": "<p>Whrite here your label - Whrite here your label - Whrite here your label</p>"
+      "type": "image_picker",
+      "id": "testimonial-circle",
+      "label": "Animated circle"
     }
   ],
   "presets": [
