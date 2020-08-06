@@ -23,6 +23,11 @@ HEADER
   }
 }
 
+@media(min-width: 1050px) {
+  .logo {
+    top: 0;
+  }
+}
 /*==========================================
 HERO HEADER
 ============================================*/
@@ -59,6 +64,18 @@ HERO HEADER
   .hero-video-container {
     position: relative;
     height: 100vh;
+    margin: auto;
+  }
+
+  .slideshow__slide-title {
+    width: 70%;
+  }
+}
+
+@media(min-width: 1050px) {
+  .hero-video-container {
+    position: relative;
+    height: 100vh;
   }
 
   .slideshow__slide-title {
@@ -70,7 +87,6 @@ HERO HEADER
   }
 }
 
-
 /*==========================================
 REASSURANCE
 ============================================*/
@@ -78,6 +94,12 @@ REASSURANCE
 .section-title {
   color: #F4F2E5;
   font-weight: bold;
+}
+
+.reassurance__block-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-inline-image {
@@ -94,6 +116,12 @@ REASSURANCE
   width: 15% !important;
 }
 
+@media(min-width: 500px) {
+  .reassurance__block-wrapper {
+    display: inline-block;
+  }
+}
+
 @media(min-width: 768px) {
   .home-inline-image {
     margin-bottom: 40px;
@@ -103,7 +131,6 @@ REASSURANCE
     margin-bottom: 10px;
   }
 }
-
 
 /*==========================================
 FEATURED-PRODUCT
@@ -167,7 +194,7 @@ FEATURED-PRODUCT
 }
 
 .featured-product__entretien-wrapper {
-  align-items: center;
+  padding-top: 40px;
 }
 
 .featured-product__entretien-picto-container {
@@ -222,7 +249,6 @@ FEATURED-PRODUCT
 
   .featured-product__entretien-wrapper {
     display: flex;
-    padding-left: 40px;
     align-items: center;
   }
 
@@ -355,11 +381,11 @@ TESTIMONIAL
   .testimonial__wraper {
     display: flex;
     justify-content: space-between;
-    padding-left: 15%;
+    padding-left: 10%;
   }
 
   .testimonial__left-encart {
-    margin: 8% 0 8% 0%;
+    margin: 5% 0 5% 0%;
   }
 
   .testimonial__right-encart {
@@ -369,19 +395,30 @@ TESTIMONIAL
     align-items: center;
     width: 35vw;
     padding-left: 25px;
+}
+}
+
+@media(min-width: 1020px) {
+  .testimonial__wraper {
+    padding-left: 15%;
+  }
+
+  .testimonial__left-encart {
+    margin: 8% 0 8% 0%;
+  }
+
+  .testimonial__right-encart {
     position: absolute;
     right: 0;
     bottom: -2%;
   }
 
   .testimonial__animated-circle {
-    width: 90%;
     position: absolute;
-    width: 70%;
+    width: 50%;
     top: -10%;
-    right: -45%;
+    right: -25%;
   }
-
 
   .testimonial__image-circle {
     display: block;
@@ -407,7 +444,14 @@ TESTIMONIAL
   .testimonial__image--arrow {
     top: 30%;
   }
+}
 
+@media(min-width: 1100px) {
+
+  .testimonial__animated-circle {
+    width: 70%;
+    right: -45%;
+  }
 }
 
 /*==========================================

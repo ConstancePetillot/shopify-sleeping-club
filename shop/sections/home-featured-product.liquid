@@ -83,18 +83,20 @@
 
       {% include 'product-additional-information' %}
 
+      <div class="featured-product__entretien-wrapper">
+        {% if section.settings.picto-entretien != blank %}
+        <div class="featured-product__entretien-picto-container">
+          <img class="featured-product__entretien-picto-img" src="{{ section.settings.picto-entretien | img_url : '250x' }}" alt="{{ block.settings.picto-entretien.alt | escape }}"/>
+        </div>
+        {% endif %}
+        {% if section.settings.entretien != blank %}
+        <div class="featured-product__entretien-text">{{ section.settings.entretien }}</div>
+        {% endif %}
+      </div>
+
     </div>
 
-    <div class="featured-product__entretien-wrapper">
-      {% if section.settings.picto-entretien != blank %}
-      <div class="featured-product__entretien-picto-container">
-        <img class="featured-product__entretien-picto-img" src="{{ section.settings.picto-entretien | img_url : '250x' }}" alt="{{ block.settings.picto-entretien.alt | escape }}"/>
-      </div>
-      {% endif %}
-      {% if section.settings.entretien != blank %}
-      <div class="featured-product__entretien-text">{{ section.settings.entretien }}</div>
-      {% endif %}
-    </div>
+
 
     {%
       include 'product-json',
