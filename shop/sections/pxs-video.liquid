@@ -56,40 +56,14 @@
     data-video-container
   >
     {% if section.settings.overlay_show %}
-      <div
-        class="
-          video-overlay
-          video-overlay-button-{{ section.settings.overlay_button_style }}
-          {%-
-            if section.settings.overlay_heading != blank
-            or section.settings.overlay_text != blank
-          -%}
-            video-overlay-header-position-{{ section.settings.overlay_header_position }}
-          {%- endif -%}
-        "
-        {% capture background_styles %}
-          {%- if overlay_color_with_opacity != blank -%}
-            background-color: {{ overlay_color_with_opacity }};
-          {%- endif -%}
-          {%- if section.settings.overlay_image -%}
-            background-position: {{ section.settings.overlay_image_position | replace: '-', ' ' }};
-          {%- endif -%}
-        {% endcapture %}
-
-        {% if section.settings.overlay_image %}
-          {%
-            include 'rimg',
-            img: section.settings.overlay_image,
-            size: '1400x',
-            crop: 'center',
-            style: background_styles,
-            background: true,
-            lazy: true
-          %}
-        {% else %}
-          style="{{- background_styles -}}"
+      <div class="">
+        {% if section.settings.link != blank %}
+          <div class="home-video__video-container">
+            <video class="home-video__video" loop="" muted="" autoplay="autoplay" preload="" id="vid">
+              <source src="https://cdn.shopify.com/s/files/1/0450/8588/4571/files/SLEEPINGCLUB_Produit_V01-2.mp4?v=1596728693.mp4" type="video/mp4">
+            </video>
+          </div>
         {% endif %}
-      >
         {% if section.settings.overlay_image %}
           {%
             include 'rimg',
@@ -195,13 +169,6 @@
     {
       "type": "header",
       "content": "Video"
-    },
-    {
-      "type": "video_url",
-      "id": "video",
-      "label": "YouTube or Vimeo link",
-      "accept": ["youtube", "vimeo"],
-      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
     },
     {
       "type": "select",

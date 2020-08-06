@@ -1,0 +1,112 @@
+<section id="section-{{ section.id }}" class="home-video section module-container {{ section.settings.style }}" data-section-id="{{ section.id }}" data-section-type="alternate__section">
+  <div class="home-video__wrapper">
+
+    {% assign has_content = true %}
+    {% if
+      section.settings.title == blank and
+      section.settings.subtitle == blank and
+      section.settings.caption == blank and
+      section.settings.button == blank %}
+      {% assign has_content = false %}
+    {% endif %}
+
+      <div class="home-video__video-container">
+        <video class="home-video__video" loop="" muted="" autoplay="autoplay" preload="" id="vid">
+          <source src="https://cdn.shopify.com/s/files/1/0450/8588/4571/files/SLEEPINGCLUB_Produit_V01-2.mp4?v=1596728693.mp4" type="video/mp4">
+        </video>
+      </div>
+
+
+    {% if has_content %}
+      <div class="home-video__text">
+        {% if section.settings.title != blank %}
+          <h1 class="home-video-title slideshow__home-video-title">{{ section.settings.title }}</h1>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <h2 class="home-video__subtitle">{{ section.settings.subtitle }}</h2>
+        {% endif %}
+
+        {% if section.settings.caption != blank %}
+          <div class="home-video__caption">
+            {{ section.settings.caption }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button != blank and section.settings.link != blank %}
+          <a class="home-video__button button-black" href="{{ section.settings.link }}">
+            {{ section.settings.button  }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "home-video",
+    "settings": [
+      {
+        "type": "text",
+        "id": "home-video_subtitle",
+        "label": "Text",
+        "default": "Ecrivez votre sous-titre"
+      },
+      {
+        "type": "select",
+        "id": "style",
+        "label": "Style",
+        "options": [
+          {
+            "value": "default-style",
+            "label": "Default"
+          },
+          {
+            "value": "accent-style",
+            "label": "Accent"
+          },
+          {
+            "value": "contrast-style",
+            "label": "Contrast"
+          }
+        ],
+        "default": "default-style"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "richtext",
+        "id": "caption",
+        "label": "Text",
+        "default": "<p>Introduce customers to your shop with lifestyle imagery and product photography.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button",
+        "label": "Button text"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "home-video Video",
+        "category": "Video"
+      }
+    ]
+  }
+{% endschema %}
