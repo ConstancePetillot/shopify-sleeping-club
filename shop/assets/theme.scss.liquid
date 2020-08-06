@@ -1803,7 +1803,7 @@ td {
   }
 
   .accent-style & {
-    color: $color-accent;
+    color: black;
     background: $color-body-background;
 
     &:hover {
@@ -2030,7 +2030,7 @@ textarea {
 
   .accent-style & {
     color: $color-accent-text;
-    background-color: #F4F2E5;
+    background-color: white;
   }
 
   &:hover {
@@ -4609,8 +4609,6 @@ $local-thumbnail-horizontal-gap: 12px;
   img {
     display: block;
     width: 100%;
-    height: auto;
-    max-width: 75px;
   }
 
   svg {
@@ -9379,9 +9377,8 @@ $slideshow-gutter: 70px + $gutter;
 }
 
 .slide-title,
-.slide-subtitle,
-.slide-caption {
-  margin: 15px 0;
+.slide-subtitle {
+  margin: 25px 0;
   color: $color-heading;
 
   @include breakpoint(s-up) {

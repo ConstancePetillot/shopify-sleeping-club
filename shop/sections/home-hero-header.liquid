@@ -22,11 +22,11 @@
     {% if has_content %}
       <div class="hero-text">
         {% if section.settings.title != blank %}
-          <h1 class="hero-title slideshow__hero-title">{{ section.settings.title | escape }}</h1>
+          <h1 class="hero-title slideshow__hero-title">{{ section.settings.title }}</h1>
         {% endif %}
 
         {% if section.settings.subtitle != blank %}
-          <h2 class="hero-subtitle">{{ section.settings.subtitle | escape }}</h2>
+          <h2 class="hero-subtitle">{{ section.settings.subtitle }}</h2>
         {% endif %}
 
         {% if section.settings.caption != blank %}
@@ -37,7 +37,7 @@
 
         {% if section.settings.button != blank and section.settings.link != blank %}
           <a class="hero-button button-black" href="{{ section.settings.link }}">
-            {{ section.settings.button | escape }}
+            {{ section.settings.button  }}
           </a>
         {% endif %}
       </div>
